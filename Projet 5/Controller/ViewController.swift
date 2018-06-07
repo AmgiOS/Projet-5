@@ -28,10 +28,44 @@ class ViewController: UIViewController {
     }
     
     @objc func handleShareAction() {
+        animateViewUpOrLeft()
+    }
+    
+    func animateViewUpOrLeft() {
         if swipeGestureRecognizer?.direction == .up {
-            print("up")
+            UIView.animate(withDuration: 0.5, animations: {
+                self.gridView.transform = CGAffineTransform(translationX: 0, y: -1000)
+            }) { _ in
+                self.shareAction()
+            }
         } else {
-            print("left")
+            UIView.animate(withDuration: 0.5, animations: {
+                self.gridView.transform = CGAffineTransform(translationX: -1000, y: 0)
+            }) { _ in
+                self.shareAction()
+            }
+        }
+        
+    }
+    
+    func resetAnimationView() {
+        UIView.animate(withDuration: 0.5) {
+            self.gridView.transform = .identity
+        }
+    }
+    
+    func shareAction() {
+        print("shareAction")
+        if gridView.isAvailableToShare() {
+            let image = GridConverter.convertViewToImage(gridView!)
+            var contentToShare = [UIImage]()
+            contentToShare.append(image!)
+            _ = UIActivityViewController(activityItems: contentToShare, applicationActivities: nil)
+        } else {
+            let error = UIAlertController(title: "Error", message: "No File Has to Share", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            error.addAction(cancel)
+            present(error, animated: true, completion: resetAnimationView)
         }
     }
     
