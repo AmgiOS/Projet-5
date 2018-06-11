@@ -31,16 +31,17 @@ class ViewController: UIViewController {
         animateViewUpOrLeft()
     }
     
+    /// Animate gridView swipe Up to share and Swipe left
     func animateViewUpOrLeft() {
         if swipeGestureRecognizer?.direction == .up {
             UIView.animate(withDuration: 0.5, animations: {
-                self.gridView.transform = CGAffineTransform(translationX: 0, y: -1000)
+                self.gridView.transform = CGAffineTransform(translationX: 0, y: -self.view.frame.height)
             }) { _ in
                 self.shareAction()
             }
         } else {
             UIView.animate(withDuration: 0.5, animations: {
-                self.gridView.transform = CGAffineTransform(translationX: -1000, y: 0)
+                self.gridView.transform = CGAffineTransform(translationX: -self.view.frame.width, y: 0)
             }) { _ in
                 self.shareAction()
             }
@@ -48,19 +49,23 @@ class ViewController: UIViewController {
         
     }
     
+    /// Reset animation gridView
     func resetAnimationView() {
         UIView.animate(withDuration: 0.5) {
             self.gridView.transform = .identity
         }
     }
     
+    ///
     func shareAction() {
         print("shareAction")
         if gridView.isAvailableToShare() {
-            let image = GridConverter.convertViewToImage(gridView!)
-            var contentToShare = [UIImage]()
-            contentToShare.append(image!)
-            _ = UIActivityViewController(activityItems: contentToShare, applicationActivities: nil)
+            guard let image = GridConverter.convertViewToImage(gridView) else {return}
+            let activityViewController = UIActivityViewController(activityItems: [image], applicationActivities: nil)
+            present(activityViewController, animated: true, completion: nil)
+            activityViewController.completionWithItemsHandler = { activity, completed, items, error in
+                self.resetAnimationView()
+            }
         } else {
             let error = UIAlertController(title: "Error", message: "No File Has to Share", preferredStyle: .alert)
             let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
@@ -129,6 +134,8 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let addButton = gridView.getButton(tag) else {return}
         addButton.tag = imageView.tag
         imageView.image = selectedImage
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture(gesture:)))
+        imageView.addGestureRecognizer(tap)
         imagePicker.dismiss(animated: true, completion: checkPhoto)
     }
     
@@ -150,15 +157,16 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         }
     }
     
+    /// When a add image on view hide a button and add gesture to tap on it
     func checkPhoto() {
         guard let tag = tag else {return}
         gridView.addPhotoButton[tag].isHidden = true
         gridView.photoImageViews[tag].isUserInteractionEnabled = true
-        let tap = UITapGestureRecognizer(target: self, action: #selector(tapGesture))
-        gridView.addGestureRecognizer(tap)
+        
     }
-
-    @objc func tapGesture() {
+    
+    @objc func tapGesture(gesture: UITapGestureRecognizer) {
+        tag = gesture.view?.tag
         displayImageSourceMenu()
     }
 }

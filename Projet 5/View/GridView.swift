@@ -17,6 +17,7 @@ class GridView: UIView {
     
     @IBOutlet var parentViews: [UIView]!
     
+    /// Which shows all Views
     func resetPattern() {
         [topRightView, bottomRightView ].forEach { view in
             view?.isHidden = false
@@ -42,6 +43,7 @@ class GridView: UIView {
         return imageViewSelected
     }
     
+    /// Which check tag of buttons
     func getButton(_ tag: Int) -> UIButton? {
         var addButton: UIButton?
         
@@ -53,6 +55,7 @@ class GridView: UIView {
         return addButton
     }
     
+    /// Check if Views contains Images to Share
     func isAvailableToShare() -> Bool{
         let tags = tagOfHiddenViews()
         var isAvailable = true
