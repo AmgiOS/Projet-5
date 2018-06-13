@@ -10,6 +10,7 @@ import UIKit
 
 class GridConverter {
     
+    /// Convert gridView on UIImage for to share 
     static func convertViewToImage (_ view: UIView) -> UIImage? {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size , view.isOpaque, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)

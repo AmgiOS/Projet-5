@@ -32,6 +32,7 @@ class GridView: UIView {
         bottomRightView.isHidden = true
     }
     
+    /// Which check tag of UIImageView
     func getImageView(_ tag: Int) -> UIImageView? {
         var imageViewSelected: UIImageView?
         
@@ -64,9 +65,9 @@ class GridView: UIView {
                 isAvailable = false
             }
         }
-        
         return isAvailable
     }
+    
     
     func tagOfHiddenViews() -> [Int] {
         var tags = [Int]()

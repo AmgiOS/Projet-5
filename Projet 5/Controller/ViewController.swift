@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        gridView.hideBottomRightView()
         imagePicker.delegate = self
         swipeGestureRecognizer = UISwipeGestureRecognizer(target:self, action: #selector(handleShareAction))
         guard let swipeGestureRecognizer = swipeGestureRecognizer else {return}
@@ -56,7 +57,7 @@ class ViewController: UIViewController {
         }
     }
     
-    ///
+    /// Check if content is available to share or else animate message error
     func shareAction() {
         print("shareAction")
         if gridView.isAvailableToShare() {
@@ -74,6 +75,7 @@ class ViewController: UIViewController {
         }
     }
     
+    
     @objc func setupSwipeDirection() {
         if UIDevice.current.orientation == .landscapeLeft || UIDevice.current.orientation == .landscapeRight {
           swipeGestureRecognizer?.direction = .left
@@ -82,7 +84,7 @@ class ViewController: UIViewController {
         }
     }
 
-    
+    /// When a tapped button pattern
     @IBAction func buttonTapped(_ sender: UIButton) {
         unselectButtons()
         patternButtons[sender.tag].isSelected = true
@@ -97,6 +99,7 @@ class ViewController: UIViewController {
         }
     }
     
+    /// Reset pattern button selected
     func unselectButtons() {
         patternButtons.forEach { button in
             button.isSelected = false
@@ -143,11 +146,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    ///Access on library photo mode
     func libraryMode() {
         self.imagePicker.sourceType = .photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    ///Access on Camera Device mode
     func cameraMode() {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             self.imagePicker.sourceType = .camera
@@ -162,7 +167,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         guard let tag = tag else {return}
         gridView.addPhotoButton[tag].isHidden = true
         gridView.photoImageViews[tag].isUserInteractionEnabled = true
-        
     }
     
     @objc func tapGesture(gesture: UITapGestureRecognizer) {
