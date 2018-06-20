@@ -19,6 +19,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        launchViewDidLoad()
+    }
+    
+    func launchViewDidLoad() {
         gridView.hideBottomRightView()
         imagePicker.delegate = self
         swipeGestureRecognizer = UISwipeGestureRecognizer(target:self, action: #selector(handleShareAction))
@@ -27,7 +31,6 @@ class ViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(setupSwipeDirection), name: .UIDeviceOrientationDidChange, object: nil)
         setupSwipeDirection()
     }
-    
     @objc func handleShareAction() {
         animateViewUpOrLeft()
     }
@@ -85,7 +88,7 @@ class ViewController: UIViewController {
     }
 
     /// When a tapped button pattern
-    @IBAction func buttonTapped(_ sender: UIButton) {
+    @IBAction func PatternButtonTapped(_ sender: UIButton) {
         unselectButtons()
         patternButtons[sender.tag].isSelected = true
         gridView.resetPattern()
@@ -106,7 +109,7 @@ class ViewController: UIViewController {
         }
     }
     
-    @IBAction func addPhoto(_ sender: UIButton) {
+    @IBAction func buttonAddPhoto(_ sender: UIButton) {
         tag = sender.tag
         displayImageSourceMenu()
     }
@@ -159,6 +162,10 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
             self.present(imagePicker, animated: true, completion: nil)
         } else {
             print("No camera available")
+            let error = UIAlertController(title: "Error", message: "No camera Device", preferredStyle: .alert)
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            error.addAction(cancel)
+            self.present(error, animated: true, completion: nil)
         }
     }
     

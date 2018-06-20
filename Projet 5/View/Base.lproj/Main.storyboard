@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -21,29 +17,29 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Projet_5" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vLg-ag-F24" customClass="GridView" customModule="Projet_5" customModuleProvider="target">
-                                <rect key="frame" x="40" y="186" width="295" height="295"/>
+                                <rect key="frame" x="40" y="40" width="520" height="520"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="ihN-br-TUx">
-                                        <rect key="frame" x="15" y="15" width="265" height="265"/>
+                                        <rect key="frame" x="15" y="15" width="490" height="490"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="GMp-I7-FPC">
-                                                <rect key="frame" x="0.0" y="0.0" width="265" height="125"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="490" height="237.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ron-rI-KkJ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="237.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="J3N-Uk-C2Z">
-                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="237.5" height="237.5"/>
                                                             </imageView>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rha-hR-tsG">
-                                                                <rect key="frame" x="39.5" y="40.5" width="47" height="44"/>
+                                                                <rect key="frame" x="96" y="97" width="47" height="44"/>
                                                                 <state key="normal" image="Combined Shape"/>
                                                                 <connections>
-                                                                    <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HVd-xg-9OU"/>
+                                                                    <action selector="buttonAddPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HVd-xg-9OU"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -58,16 +54,16 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="16P-Eu-ulF">
-                                                        <rect key="frame" x="140" y="0.0" width="125" height="125"/>
+                                                        <rect key="frame" x="252.5" y="0.0" width="237.5" height="237.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="1" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9ak-NC-iiQ">
-                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="237.5" height="237.5"/>
                                                             </imageView>
                                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rHJ-OD-8n7">
-                                                                <rect key="frame" x="39.5" y="40.5" width="47" height="44"/>
+                                                                <rect key="frame" x="96" y="97" width="47" height="44"/>
                                                                 <state key="normal" image="Combined Shape"/>
                                                                 <connections>
-                                                                    <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDb-EF-nIf"/>
+                                                                    <action selector="buttonAddPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="pDb-EF-nIf"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -84,19 +80,19 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="qam-lN-FnT">
-                                                <rect key="frame" x="0.0" y="140" width="265" height="125"/>
+                                                <rect key="frame" x="0.0" y="252.5" width="490" height="237.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rlF-5e-kbO">
-                                                        <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="237.5" height="237.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xbT-KT-Qo1">
-                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="237.5" height="237.5"/>
                                                             </imageView>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RBH-Tl-jv1">
-                                                                <rect key="frame" x="39.5" y="40.5" width="47" height="44"/>
+                                                                <rect key="frame" x="96" y="97" width="47" height="44"/>
                                                                 <state key="normal" image="Combined Shape"/>
                                                                 <connections>
-                                                                    <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="boL-3f-nU1"/>
+                                                                    <action selector="buttonAddPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="boL-3f-nU1"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -111,16 +107,16 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uIv-Gj-98y">
-                                                        <rect key="frame" x="140" y="0.0" width="125" height="125"/>
+                                                        <rect key="frame" x="252.5" y="0.0" width="237.5" height="237.5"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" tag="3" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="SCY-sj-FZT">
-                                                                <rect key="frame" x="0.0" y="0.0" width="125" height="125"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="237.5" height="237.5"/>
                                                             </imageView>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GQZ-GY-v1n">
-                                                                <rect key="frame" x="39.5" y="40.5" width="47" height="44"/>
+                                                                <rect key="frame" x="96" y="97" width="47" height="44"/>
                                                                 <state key="normal" image="Combined Shape"/>
                                                                 <connections>
-                                                                    <action selector="addPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXT-Yv-dPn"/>
+                                                                    <action selector="buttonAddPhoto:" destination="BYZ-38-t0r" eventType="touchUpInside" id="NXT-Yv-dPn"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -165,14 +161,14 @@
                                 </connections>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="s72-Qs-8kZ">
-                                <rect key="frame" x="57.5" y="521" width="260" height="80"/>
+                                <rect key="frame" x="170" y="600" width="260" height="80"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RnT-xE-mJL">
                                         <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
                                         <state key="normal" backgroundImage="Layout 1"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout 1"/>
                                         <connections>
-                                            <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rKJ-kb-7dD"/>
+                                            <action selector="PatternButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rKJ-kb-7dD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ub1-gq-TsL">
@@ -180,7 +176,7 @@
                                         <state key="normal" backgroundImage="Layout 2"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout 2"/>
                                         <connections>
-                                            <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YUy-Xc-JqR"/>
+                                            <action selector="PatternButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YUy-Xc-JqR"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="art-rf-ALF">
@@ -188,27 +184,30 @@
                                         <state key="normal" backgroundImage="Layout 3"/>
                                         <state key="selected" image="Selected" backgroundImage="Layout 3"/>
                                         <connections>
-                                            <action selector="buttonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JJE-S6-KXe"/>
+                                            <action selector="PatternButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JJE-S6-KXe"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <variation key="heightClass=compact" axis="vertical"/>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagrid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LLN-hO-Lwf">
-                                <rect key="frame" x="138" y="25" width="99" height="32.5"/>
+                                <rect key="frame" x="251.5" y="25" width="97.5" height="32.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="32.5" id="drf-re-lay"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="ThirstySoftRegular" family="Thirsty Soft" pointSize="25"/>
                                 <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qK4-7k-Eph">
-                                <rect key="frame" x="126" y="138.5" width="123.5" height="37.5"/>
+                                <rect key="frame" x="219.5" y="-8.5" width="162" height="38.5"/>
                                 <subviews>
                                     <imageView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" image="Share" translatesAutoresizingMaskIntoConstraints="NO" id="nON-H9-nI1">
-                                        <rect key="frame" x="54.5" y="0.0" width="15" height="10"/>
+                                        <rect key="frame" x="73.5" y="0.0" width="15" height="10"/>
                                         <variation key="heightClass=compact" image="Share left"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfP-7J-SA9">
-                                        <rect key="frame" x="0.0" y="15" width="123.5" height="22.5"/>
+                                        <rect key="frame" x="0.0" y="15" width="162" height="23.5"/>
                                         <attributedString key="attributedText">
                                             <fragment content="Swipe up to share">
                                                 <attributes>
