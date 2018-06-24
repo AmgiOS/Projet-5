@@ -176,6 +176,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         gridView.photoImageViews[tag].isUserInteractionEnabled = true
     }
     
+    /// Gesture when tap UIImageView
     @objc func tapGesture(gesture: UITapGestureRecognizer) {
         tag = gesture.view?.tag
         displayImageSourceMenu()
