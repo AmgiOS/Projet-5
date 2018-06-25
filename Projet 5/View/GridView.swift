@@ -69,7 +69,7 @@ class GridView: UIView {
     }
     
     
-    func tagOfHiddenViews() -> [Int] {
+    private func tagOfHiddenViews() -> [Int] {
         var tags = [Int]()
         parentViews.forEach { view in
             if view.isHidden {
