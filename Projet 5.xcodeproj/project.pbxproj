@@ -97,11 +97,11 @@
 		99371BED208408CA00585996 /* Projet 5 */ = {
 			isa = PBXGroup;
 			children = (
-				99328CD720BBF3C10019B3DA /* Extensions */,
 				99BA19842095CC7700C7DBFF /* Supporting Files */,
-				9913BEA1208DD60900F8B768 /* Controller */,
-				9913BEA0208DD60300F8B768 /* View */,
+				99328CD720BBF3C10019B3DA /* Extensions */,
 				9913BE9F208DD5F500F8B768 /* Modele */,
+				9913BEA0208DD60300F8B768 /* View */,
+				9913BEA1208DD60900F8B768 /* Controller */,
 			);
 			path = "Projet 5";
 			sourceTree = "<group>";
